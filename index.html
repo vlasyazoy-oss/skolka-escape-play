@@ -224,7 +224,7 @@ const LEVELS = [
   },
   {
     name: 'Медиастудия', theme: 'media', w: 125,
-    tip: 'Осторожно с проводами! Найди Ваню Петрова — враги не выносят его запаха.',
+    tip: 'Осторожно с проводами! Найди Ваню Ш. — враги не выносят его запаха.',
     build(L) {
       L.start(2, 15);
       L.ground(0, 28);
@@ -233,7 +233,7 @@ const LEVELS = [
       L.haz(16, 14, 3);
       L.e('teacher', 22, 15);
       L.ground(33, 60);
-      L.ally('vanya', 35, 15, ['Ваня Петров с тобой!', 'Я неделю не мылся. Враги, держитесь.']);
+      L.ally('vanya', 35, 15, ['Ваня Ш. с тобой!', 'Я неделю не мылся. Враги, держитесь.']);
       L.e('socped', 42, 15);
       L.plat(45, 12, 3); L.plat(49, 9, 3); L.plat(53, 6, 3); L.coins(53, 5, 3);
       L.e('drone', 50, 4);
@@ -254,11 +254,11 @@ const LEVELS = [
   },
   {
     name: 'Мастерская и фаблаб', theme: 'workshop', w: 135,
-    tip: 'Пропуск у директора Ветровой. С тобой Кирилл Лебедев и его вонь.',
+    tip: 'Пропуск у директора К. С тобой Кирилл А. и его вонь.',
     build(L) {
       L.start(2, 15);
       L.ground(0, 60);
-      L.ally('kirill', 5, 15, ['Кирилл Лебедев на месте.', 'Подведи меня к врагам — они задохнутся.']);
+      L.ally('kirill', 5, 15, ['Кирилл А. на месте.', 'Подведи меня к врагам — они задохнутся.']);
       L.laser(8, 0);
       L.e('lab', 14, 15);
       L.plat(17, 12, 4); L.coins(17, 11, 4);
@@ -283,7 +283,7 @@ const LEVELS = [
   },
   {
     name: 'IT-класс', theme: 'itclass', w: 125,
-    tip: 'Робопсы на патруле! Найди Илью Соколова — он решит все проблемы (1 раз, клавиша E).',
+    tip: 'Робопсы на патруле! Найди Илью К. — он решит все проблемы (1 раз, клавиша E).',
     build(L) {
       L.start(2, 15);
       L.ground(0, 30);
@@ -292,7 +292,7 @@ const LEVELS = [
       L.e('drone', 20, 8);
       L.haz(24, 14, 2);
       L.ground(35, 65);
-      L.ally('ilya', 37, 15, ['Я Илья Соколов. Решаю проблемы.', 'Позови меня клавишей E. Но только один раз.']);
+      L.ally('ilya', 37, 15, ['Я Илья К. Решаю проблемы.', 'Позови меня клавишей E. Но только один раз.']);
       L.e('teacher', 44, 15);
       L.plat(47, 12, 3); L.plat(51, 9, 3); L.coins(51, 8, 3);
       L.e('robodog', 55, 15);
@@ -312,7 +312,7 @@ const LEVELS = [
   },
   {
     name: 'Атриум. Главный кейс', theme: 'atrium', w: 30, boss: true,
-    tip: 'Андрей Ильич Громов — владелец школы. Не отпустит без боя!',
+    tip: 'Андрей Ильич К. — владелец школы. Не отпустит без боя!',
     build(L) {
       L.start(4, 15);
       L.ground(0, 29);
@@ -387,12 +387,12 @@ const EDEF = {
   socped: { w: 22, h: 42, hp: 2, sp: 0.5, score: 70, name: 'Соцпед' },
   robodog: { w: 34, h: 24, hp: 2, sp: 1.5, score: 90, name: 'Робопёс' },
   drone: { w: 26, h: 18, hp: 1, sp: 1.1, score: 40, name: 'Дрон', fly: true },
-  kopytova: { w: 28, h: 52, hp: 14, sp: 1.3, score: 500, name: 'Директор Ветрова' },
+  kopytova: { w: 28, h: 52, hp: 14, sp: 1.3, score: 500, name: 'Директор К.' },
   miron: { w: 22, h: 42, hp: 1, sp: 0, score: 0, name: 'Мирон', npc: true },
   vlas: { w: 22, h: 42, hp: 1, sp: 0, score: 0, name: 'Влас', npc: true, follow: 'spit' },
-  vanya: { w: 24, h: 42, hp: 1, sp: 0, score: 0, name: 'Ваня Петров', npc: true, follow: 'stink' },
-  kirill: { w: 24, h: 44, hp: 1, sp: 0, score: 0, name: 'Кирилл Лебедев', npc: true, follow: 'stink' },
-  ilya: { w: 22, h: 44, hp: 1, sp: 0, score: 0, name: 'Илья Соколов', npc: true },
+  vanya: { w: 24, h: 42, hp: 1, sp: 0, score: 0, name: 'Ваня Ш.', npc: true, follow: 'stink' },
+  kirill: { w: 24, h: 44, hp: 1, sp: 0, score: 0, name: 'Кирилл А.', npc: true, follow: 'stink' },
+  ilya: { w: 22, h: 44, hp: 1, sp: 0, score: 0, name: 'Илья К.', npc: true },
 };
 function spawnEnemy(s) {
   const d = EDEF[s.t];
@@ -461,7 +461,7 @@ function callIlya() {
   player.hp = player.max;
   if (!level.def.boss && !hasPass) hasPass = true;
   ilyaFlash = 120; shake = 12;
-  showMsg('Илья Соколов решил все проблемы!', 160); S.win();
+  showMsg('Илья К. решил все проблемы!', 160); S.win();
 }
 function hurtEnemy(e, n) {
   if (e.npc) return;
@@ -480,8 +480,8 @@ function hurtEnemy(e, n) {
     burst(e.x + e.w / 2, e.y + e.h / 2, '#ffffff', 14);
     if (e.t === 'kopytova') {
       level.items.push({ t: 'pass', x: e.x + e.w / 2, y: e.y + e.h - 20 });
-      floatText(e.x + e.w / 2, e.y - 24, 'Ветрова: «Ну... пока!»', '#fff');
-      showMsg('Ветрова уронила ПРОПУСК!', 150);
+      floatText(e.x + e.w / 2, e.y - 24, 'Директор К.: «Ну... пока!»', '#fff');
+      showMsg('Директор К. уронила ПРОПУСК!', 150);
       S.boss(); shake = 12;
     } else if (player.hp < player.max && Math.random() < 0.2) level.items.push({ t: 'heal', x: e.x + e.w / 2, y: e.y + e.h - 16 });
   }
@@ -702,7 +702,7 @@ function updNPC(e) {
       if (e.follow) { e.joined = true; showMsg(`${e.name} теперь с тобой!`, 140); S.pick(); }
       if (e.t === 'ilya' && !e.gave) {
         e.gave = true;
-        if (!perks.ilya && !perks.ilyaUsed) { perks.ilya = true; showMsg('Илья Соколов на связи! Нажми E — решит все проблемы (1 раз)', 200); S.pick(); }
+        if (!perks.ilya && !perks.ilyaUsed) { perks.ilya = true; showMsg('Илья К. на связи! Нажми E — решит все проблемы (1 раз)', 200); S.pick(); }
       }
     }
     return;
@@ -756,7 +756,7 @@ function updKop(e) {
     if (Math.abs(dx) < 460) {
       e.active = true; e.state = 'throw'; e.st = 60;
       say(e, 'Привет! Куда это мы?', 130);
-      showMsg('Мини-босс: директор Ветрова!', 120); S.boss(); shake = 8;
+      showMsg('Мини-босс: директор К.!', 120); S.boss(); shake = 8;
     }
   } else {
     e.st--;
@@ -1412,7 +1412,7 @@ function drawEnemy(e) {
     if (e.sayT > 0) bubble(cx, e.y - 18, e.say);
     else if (e.near && (!e.joined || e.lt < 60 && e.line === 0)) bubble(cx, e.y - 18, e.lines[e.line]);
   } else if (e.t === 'kopytova') {
-    text('ДИРЕКТОР ВЕТРОВА', cx, e.y - 24, 12, '#fff', 'center', 'rgba(0,0,0,.7)');
+    text('ДИРЕКТОР К.', cx, e.y - 24, 12, '#fff', 'center', 'rgba(0,0,0,.7)');
     ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(cx - 30, e.y - 14, 60, 7);
     ctx.fillStyle = '#e03131'; ctx.fillRect(cx - 29, e.y - 13, 58 * Math.max(0, e.hp) / e.max, 5);
     if (e.sayT > 0) bubble(cx, e.y - 30, e.say);
@@ -1579,7 +1579,7 @@ function drawHUD() {
   if (god) text('БОГ-РЕЖИМ [4]', VW - 16, 52, 14, '#ffd43b', 'right', '#000');
   if (boss) {
     const w = 520, x = (VW - w) / 2, y = 70;
-    text('АНДРЕЙ ИЛЬИЧ ГРОМОВ — владелец школы', VW / 2, y - 6, 15, '#fff', 'center', '#000');
+    text('АНДРЕЙ ИЛЬИЧ К. — владелец школы', VW / 2, y - 6, 15, '#fff', 'center', '#000');
     ctx.fillStyle = 'rgba(0,0,0,.6)'; rr(x - 4, y + 6, w + 8, 20, 6);
     ctx.fillStyle = boss.phase === 3 ? '#e03131' : boss.phase === 2 ? '#f76707' : '#f59f00';
     rr(x, y + 10, w * Math.max(0, boss.hp) / boss.max, 12, 4);
@@ -1599,8 +1599,8 @@ function drawTitle() {
   const bob = Math.sin(tick * 0.05) * 3;
   text('ПОБЕГ ИЗ СКОЛКИ', VW / 2, 50 + bob, 56, '#ffd43b', 'center', '#1b2438');
   ctx.fillStyle = 'rgba(10,14,24,.82)'; rr(90, 380, 780, 156, 12);
-  text('Пятница, 15:59. Директор Ветрова, охрана туалетов, соцпеды и владелец школы', VW / 2, 400, 15, '#e9ecef', 'center');
-  text('Андрей Ильич Громов не отпускают. Помогут Влас, Ваня, Кирилл и Илья!', VW / 2, 420, 15, '#e9ecef', 'center');
+  text('Пятница, 15:59. Директор К., охрана туалетов, соцпеды и владелец школы', VW / 2, 400, 15, '#e9ecef', 'center');
+  text('Андрей Ильич К. не отпускают. Помогут Влас, Ваня, Кирилл и Илья!', VW / 2, 420, 15, '#e9ecef', 'center');
   const ctl = [['← → / A D', 'бег'], ['↑ / W / Пробел', 'прыжок, у стены — отскок'], ['J / X', 'бумажный самолётик'],
     ['E / Q', 'позвать Илью (1 раз)'], ['прыжок сверху', 'оглушить врага'], ['P / Esc', 'пауза']];
   ctl.forEach(([k, v], i) => {
@@ -1654,7 +1654,7 @@ function draw() {
     ctx.fillStyle = `rgba(255,255,255,${ilyaFlash / 240})`;
     for (let k = 0; k < 12; k++) { ctx.rotate(Math.PI / 6); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(700, -40); ctx.lineTo(700, 40); ctx.fill(); }
     ctx.restore();
-    if (ilyaFlash > 30) text('ИЛЬЯ СОКОЛОВ РЕШИЛ ВСЕ ПРОБЛЕМЫ', VW / 2, VH / 2 - 60, 30, '#1c7ed6', 'center', '#fff');
+    if (ilyaFlash > 30) text('ИЛЬЯ К. РЕШИЛ ВСЕ ПРОБЛЕМЫ', VW / 2, VH / 2 - 60, 30, '#1c7ed6', 'center', '#fff');
   }
   drawHUD();
   if (state === 'card') drawCard();
